@@ -3,7 +3,7 @@ package bogosort;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Bogosort4 {
+public class Bogosort5 {
 
     public static boolean isSorted(int[] array) {
         for (int i = 1; i < array.length; i++) {
