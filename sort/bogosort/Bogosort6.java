@@ -27,15 +27,13 @@ public class Bogosort6 {
 
 
     public static void bogosort(int[] array) {
-        int cnt = 1;
         while (!isSorted(array)) {
-            // System.out.println(cnt++);
             shuffle(array);
         }
     }
 
     public static void main(String[] args) {
-        int[] array = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 15, 90, 3};
+        int[] array = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 15};
         bogosort(array);
         System.out.println("Sorted:" + Arrays.toString(array));
     }
