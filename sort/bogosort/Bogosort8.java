@@ -1,6 +1,5 @@
 package BogoSort;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -24,7 +23,6 @@ public class Bogosort8 {
             array[i] = temp;
         }
     }
-
 
     public static void bogosort(int[] array) {
         while(!isSorted(array)) {
