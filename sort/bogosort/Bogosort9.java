@@ -35,4 +35,5 @@ public class Bogosort9 {
         bogosort(array);
         System.out.println(Arrays.toString(array));
     }
+    
 }

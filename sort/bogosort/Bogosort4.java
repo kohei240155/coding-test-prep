@@ -36,4 +36,5 @@ public class Bogosort4 {
         bogosort(array);
         System.out.println("Sorted array: " + Arrays.toString(array));
     }
+    
 }
