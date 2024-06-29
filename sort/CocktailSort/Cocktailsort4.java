@@ -2,14 +2,14 @@ package CocktailSort;
 
 import java.util.Arrays;
 
-public class CocktailSort {
+public class Cocktailsort4 {
 
 	public static void cocktailSort(int[] array) {
 		boolean swapped = true;
 		int start = 0;
 		int end = array.length - 1;
 		
-		while(swapped) {
+		while (swapped) {
 			swapped = false;
 			
 			for (int i = start; i < end; i++) {

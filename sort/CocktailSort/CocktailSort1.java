@@ -43,8 +43,7 @@ public class CocktailSort1 {
 	}
 	
 	public static void main(String[] args) {
-		
-		int[] array = {3, 15, 2, 65, 2, 19, 2, 43, 63, 92, 23, 65};
+		int[] array = {3, 1, 2, 5, 9, 2, 2, 4, 6, 2, 1, 3, 9};
 		cocktailSort(array);
 		System.out.println(Arrays.toString(array));
 	}
