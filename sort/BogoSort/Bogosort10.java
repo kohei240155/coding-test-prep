@@ -1,4 +1,4 @@
-package CombSort;
+package BogoSort;
 
 import java.util.Arrays;
 import java.util.Random;
