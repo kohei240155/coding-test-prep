@@ -13,7 +13,7 @@ public class Bogosort13 {
 		}
 		return true;
 	}
-	
+
 	public static void shuffle(int[] array) {
 		Random random = new Random();
 		for (int i = 0; i < array.length; i++) {
@@ -23,15 +23,15 @@ public class Bogosort13 {
 			array[i] = temp;
 		}
 	}
-	
+
 	public static void bogosort(int[] array) {
 		while (!isSorted(array)) {
 			shuffle(array);
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		int[] array = {3, 1, 2, 5, 4, 9, 6};
+		int[] array = { 3, 1, 2, 5, 4, 9, 6 };
 		bogosort(array);
 		System.out.println(Arrays.toString(array));
 	}
