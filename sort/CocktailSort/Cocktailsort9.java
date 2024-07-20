@@ -48,5 +48,6 @@ public class Cocktailsort9 {
 		cocktailSort(array);
 		System.out.println(Arrays.toString(array));
 	}
+	
 
 }
