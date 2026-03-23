@@ -1,16 +1,20 @@
-// 35. Search Insert Position
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-var searchInsert = function (nums, target) {
+let arr = [5, 2, 9, 1, 5, 6];
 
-  for (let i = 0; i < nums.length; i++) {
-    if (target <= nums[i]) {
-      return i;
+function insertionSort(arr) {
+
+  for (let i = 0; i < arr.length; i++) {
+    let v = arr[i];
+    let j = i - 1;
+    while (0 <= j && v < arr[j]) {
+      arr[j + 1] = arr[j];
+      j--;
     }
+
+    arr[j + 1] = v;
   }
 
-  return nums.length;
-};
+  return arr;
+}
+
+console.log(arr);
+console.log(insertionSort(arr));
