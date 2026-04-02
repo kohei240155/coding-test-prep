@@ -69,6 +69,8 @@ patterns.forEach(({ left, right, label }) => {
 console.log("[] == false:", [] == false);
 console.log("![] == false:", ![] == false);
 
+console.log("--------- Step4 ---------");
+
 const patterns2 = [
   { left: "0", right: false, label: '"0" === false' },
   { left: "", right: false, label: '"" === false' },
@@ -89,5 +91,50 @@ patterns2.forEach(({ left, right, label }) => {
 console.log("Object.is(NaN, NaN):", Object.is(NaN, NaN));
 console.log("Object.is(0, -0):", Object.is(0, -0));
 console.log("0 === -0:", 0 === -0);
+
+console.log("-------------------------");
+
+console.log("--------- Step5 ---------");
+
+const numberTestCases = [
+  ["空文字列 ''", ""],
+  ["スペース ' '", " "],
+  ["文字列 '42'", "42"],
+  ["文字列 '42abc'", "42abc"],
+  ["文字列 '0x1A'", "0x1A"],
+  ["true", true],
+  ["false", false],
+  ["null", null],
+  ["undefined", undefined],
+  ["空配列 []", []],
+  ["配列 [1]", [1]],
+  ["配列 [1,2]", [1, 2]],
+];
+
+console.log("=== Number() の変換結果 ===");
+numberTestCases.forEach(([description, value]) => {
+  const result = Number(value);
+  console.log(`Number(${description.padEnd(18)} -> ${result})`);
+});
+
+console.log("\n=== parseInt() の変換結果 ===");
+const parseIntTestCases = [
+  ["'42'", "42"],
+  ["'42abc'", "42abc"],
+  ["'abc42'", "abc42"],
+  ["'0x1A'", "0x1A"],
+  ["''", ""],
+  ["' 42 '", " 42 "],
+  ["'3.14'", "3.14"],
+];
+
+parseIntTestCases.forEach(([description, value]) => {
+  const result = parseInt(value);
+  console.log(`parseInt(${description.padEnd(12)}) -> ${result}`);
+})
+
+console.log("Number([]):", Number([]));
+console.log("Number([null]):", Number([null]));
+console.log("Number([undefined]):", Number([undefined]));
 
 console.log("-------------------------");
