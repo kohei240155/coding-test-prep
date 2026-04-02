@@ -47,3 +47,25 @@ console.log("typeof NaN:", typeof NaN);
 console.log("NaN === NaN:", NaN === NaN);
 console.log("Number.isNaN(NaN):", Number.isNaN(NaN));
 console.log("-------------------------");
+
+console.log("--------- Step3 ---------");
+const patterns = [
+  { left: "0", right: false, label: '"0" == false' },
+  { left: "", right: false, label: '"" == false'},
+  { left: "", right: 0, label: '"" == 0'},
+  { left: "1", right: true, label: '"1" == true'},
+  { left: null, right: undefined, label: 'null == undefined'},
+  { left: null, right: 0, label: 'null == 0'},
+  { left: [], right: 0, label: '[] == 0'},
+  { left: [], right: "", label: '[] == ""'},
+  { left: [1], right: 1, label: '[1] == 1'},
+  { left: [1, 2], right: "1,2", label: '[1,2] == "1,2"'}
+]
+
+patterns.forEach(({ left, right, label }) => {
+  console.log(`${label.padEnd(22)} -> ${left == right}`);
+})
+
+console.log("[] == false:", [] == false);
+console.log("![] == false:", ![] == false);
+console.log("-------------------------");
