@@ -51,15 +51,15 @@ console.log("-------------------------");
 console.log("--------- Step3 ---------");
 const patterns = [
   { left: "0", right: false, label: '"0" == false' },
-  { left: "", right: false, label: '"" == false'},
-  { left: "", right: 0, label: '"" == 0'},
-  { left: "1", right: true, label: '"1" == true'},
-  { left: null, right: undefined, label: 'null == undefined'},
-  { left: null, right: 0, label: 'null == 0'},
-  { left: [], right: 0, label: '[] == 0'},
-  { left: [], right: "", label: '[] == ""'},
-  { left: [1], right: 1, label: '[1] == 1'},
-  { left: [1, 2], right: "1,2", label: '[1,2] == "1,2"'}
+  { left: "", right: false, label: '"" == false' },
+  { left: "", right: 0, label: '"" == 0' },
+  { left: "1", right: true, label: '"1" == true' },
+  { left: null, right: undefined, label: 'null == undefined' },
+  { left: null, right: 0, label: 'null == 0' },
+  { left: [], right: 0, label: '[] == 0' },
+  { left: [], right: "", label: '[] == ""' },
+  { left: [1], right: 1, label: '[1] == 1' },
+  { left: [1, 2], right: "1,2", label: '[1,2] == "1,2"' }
 ]
 
 patterns.forEach(({ left, right, label }) => {
@@ -68,4 +68,26 @@ patterns.forEach(({ left, right, label }) => {
 
 console.log("[] == false:", [] == false);
 console.log("![] == false:", ![] == false);
+
+const patterns2 = [
+  { left: "0", right: false, label: '"0" === false' },
+  { left: "", right: false, label: '"" === false' },
+  { left: "", right: 0, label: '"" === 0' },
+  { left: "1", right: true, label: '"1" === true' },
+  { left: null, right: undefined, label: 'null === undefined' },
+  { left: null, right: 0, label: 'null === 0' },
+  { left: [], right: 0, label: '[] === 0' },
+  { left: [], right: "", label: '[] === ""' },
+  { left: [1], right: 1, label: '[1] === 1' },
+  { left: [1, 2], right: "1,2", label: '[1,2] === "1,2"' }
+]
+
+patterns2.forEach(({ left, right, label }) => {
+  console.log(`${label.padEnd(22)} -> ${left === right}`);
+})
+
+console.log("Object.is(NaN, NaN):", Object.is(NaN, NaN));
+console.log("Object.is(0, -0):", Object.is(0, -0));
+console.log("0 === -0:", 0 === -0);
+
 console.log("-------------------------");
