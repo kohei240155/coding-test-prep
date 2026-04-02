@@ -138,3 +138,63 @@ console.log("Number([null]):", Number([null]));
 console.log("Number([undefined]):", Number([undefined]));
 
 console.log("-------------------------");
+
+console.log("--------- Step6 ---------");
+
+const stringTestCases = [
+  [42, "42"],
+  [0, "0"],
+  [-0, "-0"],
+  [NaN, "NaN"],
+  [Infinity, "Infinity"],
+  [true, "true"],
+  [false, "false"],
+  [null, "null"],
+  [undefined, "undefined"],
+  [[], "[]"],
+  [[1, 2], "[1, 2]"],
+  [{ name: "JS" }, "{ name: 'JS' }"],
+];
+
+console.log("=== String() の変換結果 ===");
+stringTestCases.forEach(([value, expectedHint]) => {
+  console.log(`String(${String(expectedHint).padEnd(18)}) -> "${String(value)}"`);
+});
+
+console.log("\n=== Boolean() の変換結果（falsy 値） ===");
+const falsyValues = [
+  ["false", false],
+  ["0", 0],
+  ["-0", -0],
+  ['""', ""],
+  ["null", null],
+  ["undefined", undefined],
+  ["NaN", NaN],
+  ["0n", 0n],
+]
+
+falsyValues.forEach(([label, value]) => {
+  console.log(`Boolean(${label.padEnd(12)}) -> ${Boolean(value)}`);
+});
+
+console.log("\n=== 驚きの truthy 値 ===");
+const surprisingTruthy = [
+  ['"0"（文字列のゼロ）', "0"],
+  ['"false"（文字列のfalse）', "false"],
+  ["[]（空配列）", []],
+  ["{}（空オブジェクト）", {}],
+]
+
+surprisingTruthy.forEach(([label, value]) => {
+  console.log(`Boolean(${label.padEnd(28)} -> ${Boolean(value)})`);
+});
+
+console.log("");
+console.log("String(-0):", String(-0));
+console.log("-0 + '':", -0 + "");
+console.log("JSON.stringify(-0):", JSON.stringify(-0));
+console.log("String([] + []):", String([] + []));
+console.log("String([] + {}):", String([] + {}));
+console.log("String({} + []):", String({} + []));
+
+console.log("-------------------------");
