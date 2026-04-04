@@ -51,3 +51,9 @@ console.log('originalUser:', originalUser);
 console.log('copiedUser:', copiedUser);
 console.log('同じオブジェクト？:', originalUser === copiedUser);
 
+
+const teamA = { score: 0 };
+const teamB = teamA;
+teamB.score = 10;
+console.log('teamA.score:', teamA.score);
+
