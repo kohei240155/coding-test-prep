@@ -155,3 +155,10 @@ console.log('original.hobbies:', original.hobbies);
 console.log('copy1.hobbies:', copy1.hobbies);
 console.log('hobbies は同じ配列？:', original.hobbies === copy1.hobbies);
 
+const config = { theme: 'dark', sizes: { width: 100, height: 200 } };
+const newConfig = { ...config };
+newConfig.theme = 'light';
+newConfig.sizes.width = 500;
+
+console.log('config.theme:', config.theme);
+console.log('config.sizes.width:', config.sizes.width);
