@@ -119,3 +119,13 @@ const sortedCopy = numbers2.toSorted();
 console.log('number2(toSorted後):', numbers2);
 console.log('sortedCopy:', sortedCopy);
 console.log('同じ配列？:', numbers2 === sortedCopy);
+
+const listA = [1, 2, 3];
+const listB = listA;
+const listC = [...listA];
+
+listA.push(4);
+
+console.log('listA:', listA);
+console.log('listB:', listB);
+console.log('listC:', listC);
