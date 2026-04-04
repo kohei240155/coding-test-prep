@@ -41,3 +41,13 @@ let count = 5;
 let result = increment(count);
 console.log('count:', count);
 console.log('result:', result);
+
+const originalUser = { name: 'Alice', age: 25 };
+const copiedUser = originalUser;
+
+copiedUser.age = 30;
+
+console.log('originalUser:', originalUser);
+console.log('copiedUser:', copiedUser);
+console.log('同じオブジェクト？:', originalUser === copiedUser);
+
