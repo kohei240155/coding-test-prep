@@ -57,3 +57,29 @@ const teamB = teamA;
 teamB.score = 10;
 console.log('teamA.score:', teamA.score);
 
+
+function addSkill(userObj) {
+  userObj.skills.push('TypeScript');
+  console.log('関数内:', userObj);
+}
+
+const developer = { name: 'Bob', skills: ['JavaScript'] };
+console.log('呼び出し前:', developer);
+
+addSkill(developer);
+
+console.log('呼び出し後:', developer);
+
+console.log('---');
+
+function replaceUser(userObj) {
+  userObj = { name: 'Charlie', skills: ['Python'] };
+  console.log('関数内（再代入後）:', userObj);
+}
+
+const engineer = { name: 'Dave', skills: ['Go'] };
+console.log('呼び出し前:', engineer);
+
+replaceUser(engineer);
+
+console.log('呼び出し後:', engineer);
