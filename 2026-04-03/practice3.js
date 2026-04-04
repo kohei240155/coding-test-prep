@@ -129,3 +129,29 @@ listA.push(4);
 console.log('listA:', listA);
 console.log('listB:', listB);
 console.log('listC:', listC);
+
+const original = { name: 'Alice', age: 25, hobbies: ['読書', '映画'] };
+
+const copy1 = { ...original };
+
+const copy2 = Object.assign({}, original);
+
+const originalArray = [1, 2, 3];
+const copy3 = [...originalArray];
+const copy4 = Array.from(originalArray);
+
+copy1.name = 'Bob';
+copy1.age = 30;
+
+console.log('original.name:', original.name);
+console.log('copy1.name:', copy1.name);
+console.log('独立している？:', original !== copy1);
+
+console.log('---');
+
+copy1.hobbies.push('旅行');
+
+console.log('original.hobbies:', original.hobbies);
+console.log('copy1.hobbies:', copy1.hobbies);
+console.log('hobbies は同じ配列？:', original.hobbies === copy1.hobbies);
+
