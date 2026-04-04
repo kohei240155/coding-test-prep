@@ -31,3 +31,13 @@ console.log('関数呼び出し前:', myNumber);
 tryToChange(myNumber);
 
 console.log('関数呼び出し後:', myNumber);
+
+function increment(num) {
+  num++;
+  return num;
+}
+
+let count = 5;
+let result = increment(count);
+console.log('count:', count);
+console.log('result:', result);
