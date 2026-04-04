@@ -83,3 +83,13 @@ console.log('呼び出し前:', engineer);
 replaceUser(engineer);
 
 console.log('呼び出し後:', engineer);
+
+function updateName(obj) {
+  obj.name = 'Eve';
+  obj = { name: 'Frank' };
+  obj.name = 'Grace';
+};
+
+const person = { name: 'Alice' };
+updateName(person);
+console.log('person.name:', person.name);
