@@ -93,3 +93,29 @@ function updateName(obj) {
 const person = { name: 'Alice' };
 updateName(person);
 console.log('person.name:', person.name);
+
+const originalTodos = ['買い物', '洗濯', '料理'];
+const sharedTodos = originalTodos;
+
+sharedTodos.push('掃除');
+
+console.log('originalTodos:', originalTodos);
+console.log('sharedTodos:', sharedTodos);
+console.log('同じ配列？:', originalTodos === sharedTodos);
+
+console.log('---');
+
+const numbers = [3, 1, 4, 1, 5];
+
+const sortedRef = numbers.sort();
+console.log('numbers(sort後):', numbers);
+console.log('sortedRef:', sortedRef);
+console.log('同じ配列？:', numbers === sortedRef);
+
+console.log('---');
+
+const numbers2 = [3, 1, 4, 1, 5];
+const sortedCopy = numbers2.toSorted();
+console.log('number2(toSorted後):', numbers2);
+console.log('sortedCopy:', sortedCopy);
+console.log('同じ配列？:', numbers2 === sortedCopy);
