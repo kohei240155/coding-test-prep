@@ -44,3 +44,28 @@ try {
 } catch (error) {
   console.log("letのjエラー:", error.message);
 }
+
+const userName = "太郎";
+
+try {
+  userName = "花子";
+} catch (error) {
+  console.log("再代入エラー:", error.message);
+}
+
+const userProfile = { name: "太郎", age: 25 };
+console.log("変更前:", userProfile);
+
+userProfile.age = 26;
+userProfile.email = "taro@example.com";
+console.log("変更後:", userProfile);
+
+const scores = [80, 90, 70];
+scores.push(100);
+console.log("配列変更後:", scores);
+
+try {
+  userProfile = { name: "花子" };
+} catch (error) {
+  console.log("オブジェクト再代入エラー:", error.message);
+}
