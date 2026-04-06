@@ -136,3 +136,11 @@ for (let index = 0; index < 3; index++) {
     console.log("let index:", index);
   }, 200);
 }
+
+for (var count = 0; count < 3; count++) {
+  (function (capturedCount) {
+    setTimeout(function () {
+      console.log("IIFE count:", capturedCount);
+    });
+  })(count);
+}
