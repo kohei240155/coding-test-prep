@@ -239,3 +239,61 @@ original3.b.c = 99;
 
 console.log('shallow.b.c:', shallow.b.c);
 console.log('deep.b.c:', deep.b.c);
+
+let score = 100;
+let highScore = score;
+score = 200;
+console.log('Q1: highScore =', highScore);
+
+const cat = { name: 'Tama' };
+const sameCat = cat;
+sameCat.name = 'Mike';
+console.log('Q2: cat.name =', cat.name);
+
+const frozenObj = { value: 1 };
+frozenObj.value = 2;
+console.log('Q3: frozenObj.value =', frozenObj.value);
+
+const arrA = [1, 2, 3];
+const arrB = [...arrA];
+arrB.push(4);
+console.log('Q4: arrA.length =', arrA.length);
+
+const matrix = [
+  [1, 2],
+  [3, 4],
+];
+const matrixCopy = [...matrix];
+matrixCopy[0].push(99);
+console.log('Q5: matrix[0] =', matrix[0]);
+
+function reset(obj) {
+  obj = { count: 0 };
+}
+const counter = { count: 42 };
+reset(counter);
+console.log('Q6: counter.count =', counter.count);
+
+function addItem(arr) {
+  arr.push('new');
+}
+const items = ['a', 'b'];
+addItem(items);
+console.log('Q7: items =', items);
+
+const objX = { id: 1 };
+const objY = { id: 1 };
+const objZ = objX;
+console.log(
+  'Q8: objX === objY:', objX === objY,
+  '| objX === objZ:', objX === objZ,
+);
+
+const listX = [1, 2, 3];
+const listY = [1, 2, 3];
+console.log('Q9: listX === listY:', listX === listY);
+
+const nested = { a: { b: { c: 1 } } };
+const cloned = structuredClone(nested);
+cloned.a.b.c = 999;
+console.log('Q10: nested.a.b.c =', nested.a.b.c);
