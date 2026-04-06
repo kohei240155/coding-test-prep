@@ -84,3 +84,17 @@ try {
 
 let hoistedLet = "letの値";
 console.log("letの宣言後:", hoistedLet);
+
+let outerValue = "外側";
+
+function checkTDZ() {
+  try {
+    console.log("innerValueの値:", innerValue);
+  } catch (error) {
+    console.log("エラー:", error.message);
+  }
+  let innerValue = "外側";
+}
+
+checkTDZ();
+
