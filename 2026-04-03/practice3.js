@@ -230,3 +230,12 @@ console.log('original.value:', originalWithDate.value);
 console.log('jsonCopy.value:', jsonCopy.value);
 console.log('original.regexp:', originalWithDate.regexp);
 console.log('jsonCopy.regexp:', jsonCopy.regexp);
+
+const original3 = { a: 1, b: { c: 2 } };
+const shallow = { ...original3 };
+const deep = structuredClone(original3);
+
+original3.b.c = 99;
+
+console.log('shallow.b.c:', shallow.b.c);
+console.log('deep.b.c:', deep.b.c);
