@@ -122,3 +122,17 @@ try {
 }
 
 const greetArrow = (name) => `こんにちは、${name}さん！`;
+
+console.log("=== var版 ===");
+for (var count = 0; count < 3; count++) {
+  setTimeout(function () {
+    console.log("var count:", count);
+  }, 100);
+}
+
+console.log("=== let版 ===");
+for (let index = 0; index < 3; index++) {
+  setTimeout(function () {
+    console.log("let index:", index);
+  }, 200);
+}
