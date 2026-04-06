@@ -162,3 +162,71 @@ newConfig.sizes.width = 500;
 
 console.log('config.theme:', config.theme);
 console.log('config.sizes.width:', config.sizes.width);
+
+const original2 = {
+  name: 'Alice',
+  age: 25,
+  hobbies: ['読書', '映画'],
+  address: {
+    city: '東京',
+    zip: '100-0001',
+  },
+};
+
+const deepCopy = structuredClone(original2);
+
+deepCopy.hobbies.push('旅行');
+deepCopy.address.city = '大阪';
+
+console.log('original2.hobbies:', original2.hobbies);
+console.log('deepCopy.hobbies:', deepCopy.hobbies);
+console.log('hobbies は同じ配列？', original2.hobbies === deepCopy.hobbies);
+
+console.log('---');
+
+console.log('original2.address.city:', original2.address.city);
+console.log('deepCopy.address.city:', deepCopy.address.city);
+
+console.log('---');
+
+try {
+  const withFunction = {
+    name: 'Alice',
+    greet: function () {
+      return 'Hello!';
+    },
+  };
+  const copied = structuredClone(withFunction);
+} catch (error) {
+  console.log('エラー:', error.message);
+}
+
+console.log('---');
+
+const originalWithDate = {
+  name: 'Alice',
+  createdAt: new Date('2024-01-01'),
+  value: undefined,
+  regexp: /hello/g,
+};
+
+const jsonCopy = JSON.parse(JSON.stringify(originalWithDate));
+
+console.log('=== JSON.parse(JSON.stringify()) の制限 ===');
+console.log(
+  'original.createdAt:',
+  originalWithDate.createdAt,
+  '型:',
+  typeof originalWithDate.createdAt,
+);
+console.log(
+  'jsonCopy.createdAt:',
+  jsonCopy.createdAt,
+  '型:',
+  typeof jsonCopy.createdAt,
+);
+
+console.log('original.value:', originalWithDate.value);
+console.log('jsonCopy.value:', jsonCopy.value);
+console.log('original.regexp:', originalWithDate.regexp);
+console.log('jsonCopy.regexp:', jsonCopy.regexp);
