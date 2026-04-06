@@ -75,3 +75,12 @@ console.log("宣言前にアクセス:", hoistedVar);
 var hoistedVar = "初期化された値";
 
 console.log("宣言後にアクセス:", hoistedVar);
+
+try {
+  console.log("letの宣言前:", hoistedLet);
+} catch (error) {
+  console.log("letのエラー:", error.message);
+}
+
+let hoistedLet = "letの値";
+console.log("letの宣言後:", hoistedLet);
