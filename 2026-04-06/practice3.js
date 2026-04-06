@@ -69,3 +69,9 @@ try {
 } catch (error) {
   console.log("オブジェクト再代入エラー:", error.message);
 }
+
+console.log("宣言前にアクセス:", hoistedVar);
+
+var hoistedVar = "初期化された値";
+
+console.log("宣言後にアクセス:", hoistedVar);
