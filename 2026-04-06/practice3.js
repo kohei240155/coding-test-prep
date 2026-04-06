@@ -144,3 +144,31 @@ for (var count = 0; count < 3; count++) {
     });
   })(count);
 }
+
+const API_BASE_URL = "https://api.example.com";
+const maxRetries = 3;
+const userList = [];
+
+let currentPage = -1;
+let isLoading = false;
+let errorMessage = null;
+
+for (let step = 0; step < maxRetries; step++) {
+  console.log(`リトライ ${step + 1} / ${maxRetries}`);
+}
+
+const statusCode = 404;
+
+let statusText;
+if (statusCode === 200) {
+  statusText = "OK";
+} else if (statusCode === 404) {
+  statusText = "Not Found";
+} else {
+  statusText = "Unknown";
+}
+console.log("letパターン:", statusText);
+
+const statusMap = { 200: "OK", 404: "Not Found" };
+const betterStatusText = statusMap[statusCode] || "Unknown";
+console.log("constパターン:", betterStatusText);
