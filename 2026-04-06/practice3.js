@@ -29,3 +29,18 @@ function demonstrateBlockScope() {
 }
 
 demonstrateBlockScope();
+
+for (var i = 0; i < 3; i++) {
+
+}
+console.log("varのi:", i);
+
+for (let j = 0; j < 3; j++) {
+
+}
+
+try {
+  console.log("letのj:", j);
+} catch (error) {
+  console.log("letのjエラー:", error.message);
+}
