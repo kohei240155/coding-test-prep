@@ -98,3 +98,27 @@ function checkTDZ() {
 
 checkTDZ();
 
+
+console.log("関数宣言の結果:", greet("太郎"));
+
+function greet(name) {
+  return `こんにちは、${name}さん！`
+}
+
+try {
+  console.log("関数式(var)の結果:", greetVar("花子"));
+} catch (error) {
+  console.log("関数式(var)のエラー:", error.message);
+}
+
+var greetVar = function (name) {
+  return `こんにちは、${name}さん！`
+}
+
+try {
+  console.log("アロー関数(const)の結果:", greetArrow("次郎"));
+} catch (error) {
+  console.log("アロー関数(const)のエラー:", error.message);
+}
+
+const greetArrow = (name) => `こんにちは、${name}さん！`;
