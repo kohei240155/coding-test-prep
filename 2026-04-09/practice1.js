@@ -27,3 +27,20 @@ function callerWithLocalName() {
 }
 
 callerWithLocalName();
+
+let depth = 0;
+
+function recurse() {
+  depth++;
+  const big = new Array(10000).fill(0);
+  recurse();
+}
+
+try {
+  recurse();
+} catch (e) {
+  console.log('depth', depth);
+  console.log('error name:', e.name);
+  console.log('error message:', e.message);
+  console.log('reached depth:', depth);
+}
