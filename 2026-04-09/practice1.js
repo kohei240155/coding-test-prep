@@ -14,3 +14,16 @@ function outer() {
 }
 
 outer();
+
+const name = 'GLOBAL';
+
+function sayName() {
+  console.log('name:', name);
+}
+
+function callerWithLocalName() {
+  const name = 'LOCAL IN CALLER';
+  sayName();
+}
+
+callerWithLocalName();
