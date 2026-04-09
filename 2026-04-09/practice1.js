@@ -44,3 +44,22 @@ try {
   console.log('error message:', e.message);
   console.log('reached depth:', depth);
 }
+
+function sync() {
+  console.log('[sync] start');
+  console.log('[sync] end');
+}
+
+function async() {
+  console.log('[async] start');
+  setTimeout(() => {
+    console.log('[async] timer callback');
+    console.trace('timer callback stack');
+  }, 0);
+  console.log('[async] end (timer はまだ実行されていない)');
+}
+
+console.log('--- main start ---');
+sync();
+async();
+console.log('--- main end ---');
