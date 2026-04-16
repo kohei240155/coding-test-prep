@@ -61,8 +61,35 @@
 //   });
 
 // console.log('--- script 終了 ---');
-function infiniteMicrotask() {
-  queueMicrotask(infiniteMicrotask);
-}
-infiniteMicrotask();
-setTimeout(() => console.log('これは表示されるか？'), 0);
+
+// function infiniteMicrotask() {
+//   queueMicrotask(infiniteMicrotask);
+// }
+// infiniteMicrotask();
+// setTimeout(() => console.log('これは表示されるか？'), 0);
+
+console.log('A');
+
+setTimeout(function timer1() {
+  console.log('B');
+  Promise.resolve().then(function innerMicro() {
+    console.log('C');
+  });
+}, 0);
+
+Promise.resolve().then(function micro1() {
+  console.log('D');
+  setTimeout(function timer2() {
+    console.log('E');
+  }, 0);
+});
+
+setTimeout(function timer3() {
+  console.log('F');
+}, 0);
+
+Promise.resolve().then(function micro2() {
+  console.log('G');
+});
+
+console.log('H');
