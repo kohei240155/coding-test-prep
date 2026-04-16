@@ -68,28 +68,50 @@
 // infiniteMicrotask();
 // setTimeout(() => console.log('これは表示されるか？'), 0);
 
-console.log('A');
+// console.log('A');
 
-setTimeout(function timer1() {
-  console.log('B');
-  Promise.resolve().then(function innerMicro() {
-    console.log('C');
-  });
-}, 0);
+// setTimeout(function timer1() {
+//   console.log('B');
+//   Promise.resolve().then(function innerMicro() {
+//     console.log('C');
+//   });
+// }, 0);
 
-Promise.resolve().then(function micro1() {
-  console.log('D');
-  setTimeout(function timer2() {
-    console.log('E');
-  }, 0);
+// Promise.resolve().then(function micro1() {
+//   console.log('D');
+//   setTimeout(function timer2() {
+//     console.log('E');
+//   }, 0);
+// });
+
+// setTimeout(function timer3() {
+//   console.log('F');
+// }, 0);
+
+// Promise.resolve().then(function micro2() {
+//   console.log('G');
+// });
+
+// console.log('H');
+
+async function asyncFunction() {
+  console.log('2: asyncFunction 開始（同期部分）');
+
+  const result = await Promise.resolve('resolved!');
+
+  console.log('5: awaitの後（マイクロタスク）', result);
+  return result;
+}
+
+console.log('1: script 開始');
+
+asyncFunction().then(function thenCallback(value) {
+  console.log('6: asyncFunction の .then:', value);
 });
 
-setTimeout(function timer3() {
-  console.log('F');
-}, 0);
-
-Promise.resolve().then(function micro2() {
-  console.log('G');
+Promise.resolve().then(function otherMicro() {
+  console.log('4: 別の Promise.then');
 });
 
-console.log('H');
+console.log('3: script 終了');
+
