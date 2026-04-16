@@ -39,25 +39,30 @@
 // console.log('2: script 終了（同期）');
 
 
-console.log('1: script 開始');
+// console.log('1: script 開始');
 
-setTimeout(function macro() {
-  console.log('6: setTimeout(マクロタスク)');
-}, 0);
+// setTimeout(function macro() {
+//   console.log('6: setTimeout(マクロタスク)');
+// }, 0);
 
-Promise.resolve()
-  .then(function micro1() {
-    console.log('2: Promise.then #1');
-    return Promise.resolve();
-  })
-  .then(function micro2() {
-    console.log('3: Promise.then #2');
-    queueMicrotask(function micro3() {
-      console.log('4: queueMicrotask (micro2 の中から追加)');
-    })
-  })
-  .then(function micro4() {
-    console.log('5: Promise.then #3');
-  });
+// Promise.resolve()
+//   .then(function micro1() {
+//     console.log('2: Promise.then #1');
+//     return Promise.resolve();
+//   })
+//   .then(function micro2() {
+//     console.log('3: Promise.then #2');
+//     queueMicrotask(function micro3() {
+//       console.log('4: queueMicrotask (micro2 の中から追加)');
+//     })
+//   })
+//   .then(function micro4() {
+//     console.log('5: Promise.then #3');
+//   });
 
-console.log('--- script 終了 ---');
+// console.log('--- script 終了 ---');
+function infiniteMicrotask() {
+  queueMicrotask(infiniteMicrotask);
+}
+infiniteMicrotask();
+setTimeout(() => console.log('これは表示されるか？'), 0);
