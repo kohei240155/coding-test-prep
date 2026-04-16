@@ -94,24 +94,36 @@
 
 // console.log('H');
 
-async function asyncFunction() {
-  console.log('2: asyncFunction 開始（同期部分）');
+// async function asyncFunction() {
+//   console.log('2: asyncFunction 開始（同期部分）');
 
-  const result = await Promise.resolve('resolved!');
+//   const result = await Promise.resolve('resolved!');
 
-  console.log('5: awaitの後（マイクロタスク）', result);
-  return result;
+//   console.log('5: awaitの後（マイクロタスク）', result);
+//   return result;
+// }
+
+// console.log('1: script 開始');
+
+// asyncFunction().then(function thenCallback(value) {
+//   console.log('6: asyncFunction の .then:', value);
+// });
+
+// Promise.resolve().then(function otherMicro() {
+//   console.log('4: 別の Promise.then');
+// });
+
+// console.log('3: script 終了');
+
+async function doubleAwait() {
+  console.log('A');
+  await Promise.resolve();
+  console.log('B');
+  await Promise.resolve();
+  console.log('C');
 }
 
-console.log('1: script 開始');
-
-asyncFunction().then(function thenCallback(value) {
-  console.log('6: asyncFunction の .then:', value);
-});
-
-Promise.resolve().then(function otherMicro() {
-  console.log('4: 別の Promise.then');
-});
-
-console.log('3: script 終了');
-
+console.log('1');
+doubleAwait();
+Promise.resolve().then(() => console.log('D'));
+console.log('2');
