@@ -8,6 +8,8 @@
     <script type="text/jsx">
       const domNode = document.getElementById('app');
 
+      const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
       function createTitle(title) {
         if (title) {
           return title;
@@ -24,8 +26,12 @@
       function HomePage() {
         return (
           <div>
-            <Header title='React' />
-            <Header title='A new title' />
+            <Header title='Develop. Preview. Ship.' />
+            <ul>
+              {names.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
           </div>
         );
       }
