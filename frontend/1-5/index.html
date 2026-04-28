@@ -1,0 +1,65 @@
+<!-- microtask-blocking.html -->
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>マイクロタスクによるUIブロック</title>
+  </head>
+  <body>
+    <h1>カウンター: <span id="counter">0</span></h1>
+    <button id="startBad">悪い例: マイクロタスクで100万回更新</button>
+    <button id="startGood">良い例: マクロタスクで分割更新</button>
+
+    <script>
+      const counterEl = document.getElementById('counter');
+
+      // 悪い例: マイクロタスクでループ → UI が固まる
+      document
+        .getElementById('startBad')
+        .addEventListener('click', function onBadClick() {
+          console.log('悪い例: 開始');
+          let count = 0;
+
+          function microLoop() {
+            if (count < 1000000) {
+              count++;
+              counterEl.textContent = count;
+              queueMicrotask(microLoop); // マイクロタスクで再帰
+            } else {
+              console.log('悪い例: 完了');
+            }
+          }
+
+          microLoop();
+          // マイクロタスクが全部消化されるまでブラウザは描画できない！
+          // → 100万回完了するまで画面が固まり、最後に一気に「1000000」と表示される
+        });
+
+      // 良い例: setTimeout で分割 → UI が更新される
+      document
+        .getElementById('startGood')
+        .addEventListener('click', function onGoodClick() {
+          console.log('良い例: 開始');
+          let count = 0;
+          const batchSize = 1000;
+
+          function macroLoop() {
+            const end = Math.min(count + batchSize, 1000000);
+            while (count < end) {
+              count++;
+            }
+            counterEl.textContent = count;
+
+            if (count < 1000000) {
+              setTimeout(macroLoop, 0); // マクロタスクで次のバッチをスケジュール
+              // → 各バッチの間にブラウザが描画できる
+            } else {
+              console.log('良い例: 完了');
+            }
+          }
+
+          macroLoop();
+        });
+    </script>
+  </body>
+</html>
