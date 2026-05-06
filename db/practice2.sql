@@ -1,0 +1,3 @@
+SELECT *
+FROM books
+WHERE total_page BETWEEN 300 AND 400
